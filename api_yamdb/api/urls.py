@@ -8,7 +8,6 @@ from .views import (
 )
 
 app_name = 'api'
-
 router_v1 = DefaultRouter()
 router_v1.register('users', UserViewSet, basename='user')
 router_v1.register('categories', CategoryViewSet, basename='categories')
