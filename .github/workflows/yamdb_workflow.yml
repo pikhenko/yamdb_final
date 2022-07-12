@@ -71,7 +71,7 @@ jobs:
         # Пуш образа в Docker Hub 
         uses: docker/build-push-action@v2 
         with:
-          context: ./api_yamdb
+          context: api_yamdb
           push: true
           tags: apikhenko/yamdb_final:latest
  
@@ -82,7 +82,6 @@ jobs:
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
         with:
-          context: ./api_yamdb
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
