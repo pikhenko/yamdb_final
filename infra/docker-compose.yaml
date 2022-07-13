@@ -8,12 +8,11 @@ services:
     env_file:
       - ./.env
   
-  web:
-    
+  web: 
     image: apikhenko/yamdb_final:latest
     
     restart: always
-    
+  
     volumes:
       - static_value:/app/static/
       - media_value:/app/media/
