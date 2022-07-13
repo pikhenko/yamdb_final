@@ -1,6 +1,7 @@
-import sqlite3
 import csv
 import os
+import sqlite3
+
 from django.core.management.base import BaseCommand
 
 from api_yamdb.settings import BASE_DIR
@@ -28,10 +29,10 @@ class Command(BaseCommand):
 
         for i in CONFORMITY:
             for j in i.keys():
-                PATH_TO_FILE = os.path.join(PATH_DIR, j)
+                path_to_file = os.path.join(PATH_DIR, j)
                 table_name = i[j]
 
-                with open(PATH_TO_FILE, 'r', encoding='utf-8') as f_open_csv:
+                with open(path_to_file, 'r', encoding='utf-8') as f_open_csv:
                     rows = csv.DictReader(f_open_csv)
                     for row in rows:
                         columns = ', '.join(row.keys())

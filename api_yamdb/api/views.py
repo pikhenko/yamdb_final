@@ -1,32 +1,26 @@
 from django.core.mail import EmailMessage
+from django.db.models import Avg
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
-from django.db.models import Avg
-from rest_framework import viewsets, status
-from rest_framework import permissions
+from rest_framework import permissions, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
-from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from .serializers import (
-    CommentSerializer, GetTokenSerializer, NotAdminSerializer,
-    ReviewSerializer, SignUpSerializer, UserSerializer,
-    CategorySerializer, GenreSerializer, TitleSerializer,
-    ReadOnlyTitleSerializer
-)
-
-from .permissions import (
-    IsAdminOrReadOnly,
-    IsAdminModeratorOwnerOrReadOnly,
-    IsAdmin
-)
-
+from reviews.models import Category, Genre, Review, Title
 from user.models import User
-from reviews.models import Review, Title, Category, Genre
+
 from .filters import TitleFilter
 from .mixins import ListCreateDestroyViewSet
+from .permissions import (IsAdmin, IsAdminModeratorOwnerOrReadOnly,
+                          IsAdminOrReadOnly)
+from .serializers import (CategorySerializer, CommentSerializer,
+                          GenreSerializer, GetTokenSerializer,
+                          NotAdminSerializer, ReadOnlyTitleSerializer,
+                          ReviewSerializer, SignUpSerializer, TitleSerializer,
+                          UserSerializer)
 
 
 class CategoryGenreViewSet(ListCreateDestroyViewSet):
