@@ -46,5 +46,7 @@ YaMDB отправляет письмо с кодом подтверждения
 
 # Action workflow:
 В проекте YaMDb при пуше в ветку main код автоматически проверяется, тестируется, деплоится на сервер http://51.250.31.101/
+Документация:http://51.250.31.101/redoc/
+Админ зона:http://51.250.31.101/admin/ (доступна зарегестрированным пользователям, см. redoc)
 
 ![example workflow](https://github.com/pikhenko/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
